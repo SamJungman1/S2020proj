@@ -1,0 +1,55 @@
+<!DOCTYPE html>>
+<html>
+
+<head>
+    <script>
+        function getRandomInt(min, max) 
+        {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var rand = getRandomInt(0,9);
+        var con = "1";
+
+        function numbers() 
+        {
+            document.getElementById("ones").innerHTML = con;
+            document.getElementById("mult").innerHTML = rand;
+        }
+
+
+        function checkMath()
+        {
+            var x = con;
+            var y = rand;
+            var z = parseInt(document.getElementById("frm1").elements[0].value);
+            if(z == (x * y))
+            {
+                document.getElementById("corr").innerHTML = "True, well done";
+            }
+            else
+            {
+                document.getElementById("corr").innerHTML = "False, try again";
+            }
+            return false;
+        }
+    </script>
+</head>
+
+<title>Ones</title>
+<body onload="numbers()">
+    <h1>Ones Practice Page</h1>
+
+    <p><span id="ones"></span></p>
+    <p>*<span id="mult"></span></p>
+    <p>------</p>
+    <form id="frm1">
+        Answer: <input type="number" id="ans"><br>
+        <button name="button" type="button" onclick="checkMath()">Check</button>
+    </form> 
+
+    <p><span id="corr"></span></p>
+</body>
+</html>
